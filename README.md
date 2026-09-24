@@ -1,50 +1,59 @@
-# OLYMPIC FITNESS Alcalá — Concept Redesign V3
+# OLYMPIC FITNESS Alcalá — Concept Redesign V4
 
 🌐 **Live demo:** https://lonetreee.github.io/olympic-fitness-concept/
 
 Rediseño conceptual **no oficial** de una landing page para un gimnasio local de Alcalá de Henares.
 
-## The problem
+## Goal
 
-La presencia web pública actual del centro está muy orientada a funciones para socios —acceso, registro, reservas y gestión—, mientras que un nuevo visitante necesita entender rápidamente:
-
-- qué tipo de entrenamiento puede encontrar;
-- qué diferencia al centro;
-- cuándo abre;
-- dónde está;
-- cómo contactar.
-
-## The solution
-
-La V3 convierte la propuesta en una landing de captación más completa, manteniendo el proyecto como demo de portfolio y sin utilizar fotografías ni textos propietarios.
-
-### Customer journey
+Transformar una presencia pública muy orientada a gestión de socios en una propuesta de captación clara para nuevos visitantes:
 
 ```text
-Descubrir el centro
-        ↓
-Entender qué ofrece
-        ↓
-Generar confianza
-        ↓
-Consultar horario y ubicación
-        ↓
-Llamar / llegar al centro
+Descubrir
+   ↓
+Entender
+   ↓
+Confiar
+   ↓
+Consultar
+   ↓
+Contactar
 ```
 
-## What changed in V3
+## V4 — Final polish
 
-- Nueva sección de confianza basada en temas recurrentes de reseñas públicas.
-- Dirección y teléfono públicos integrados en los CTA.
-- Botón real de llamada mediante `tel:`.
-- Barra de acciones fija en móvil.
-- Nueva sección de tres pasos para reducir fricción.
-- FAQ interactiva y accesible.
-- Animaciones suaves con `IntersectionObserver`.
+La V4 parte de una revisión específica de desktop y móvil de la V3 y corrige los principales puntos de fricción.
+
+### Desktop improvements
+
+- Header sticky con fondo translúcido.
+- Navegación activa según la sección visible.
+- Mejor aprovechamiento visual del hero.
+- Mapa conceptual convertido en un CTA clicable completo.
+- CTA final presentado como tarjeta de conversión.
+- Mejor jerarquía de información y estados hover/focus.
+- Scroll offsets para que el header sticky no tape títulos al navegar por anclas.
+
+### Mobile improvements
+
+- Menú animado y bloqueo del scroll del fondo cuando está abierto.
+- Botón hamburguesa animado.
+- Barra fija de llamada / ubicación compatible con `safe-area-inset-bottom`.
+- Botones de CTA al 100 %.
+- Mejor wrapping del hero y del bloque de mapa.
+- Tap targets más amplios.
+- Cierre automático del menú al cambiar de breakpoint.
+
+### Accessibility and resilience
+
+- Skip link.
+- `aria-current` en navegación activa.
+- FAQ con `aria-controls`.
+- Solo una pregunta FAQ abierta cada vez.
+- Cierre con `Escape`.
+- `focus-visible`.
 - Compatibilidad con `prefers-reduced-motion`.
-- Copy más orientado a conversión.
-- Navegación actualizada para reflejar el recorrido del usuario.
-- Información de fuentes públicas separada de testimonios inventados.
+- El contenido permanece visible si JavaScript falla: las animaciones solo se activan cuando existe la clase `.js`.
 
 ## Technologies
 
@@ -55,29 +64,17 @@ Llamar / llegar al centro
 - GitHub
 - GitHub Pages
 
-## Accessibility
-
-- Estados `focus-visible`.
-- Menú móvil con `aria-expanded`.
-- FAQ con botones semánticos y estados ARIA.
-- Cierre de elementos interactivos con `Escape`.
-- Soporte para `prefers-reduced-motion`.
-- Diseño responsive para desktop, tablet y móvil.
-
 ## Public information used
 
-Para la V3 se consultó información pública disponible el 24/09/2026:
+Para el concepto se ha utilizado información pública del centro consultada para el proyecto:
 
-- Web pública del centro: https://www.olympicfitness.es/
-- Ficha local y reseñas públicas: https://alcala365.com/ficha/olympic-fitness-alcala
-
-Datos utilizados únicamente como referencia para esta demo:
-
+- web pública del centro;
+- ficha local;
 - horario;
 - dirección;
 - teléfono público;
 - tipos de entrenamiento mencionados públicamente;
-- temas generales que se repiten en reseñas públicas.
+- temas generales recurrentes en reseñas públicas.
 
 No se han copiado fotografías, logotipos oficiales ni textos completos de reseñas.
 
@@ -98,17 +95,16 @@ Este proyecto es una **demo de portfolio** y no es la web oficial del negocio.
 
 - No representa ni está afiliado con OLYMPIC FITNESS.
 - Incluye `noindex,nofollow`.
-- El nombre se utiliza únicamente para mostrar un concepto de rediseño.
 - Los datos deben verificarse con el propietario antes de una publicación oficial.
-- La versión oficial requeriría autorización para marca, fotografías y contenido.
+- Una versión oficial requeriría autorización para marca, fotografías y contenido.
 
 ## If the business accepts the project
 
-1. Validar identidad de marca y contenido.
+1. Validar identidad de marca, textos y servicios.
 2. Sustituir gráficos conceptuales por fotografías autorizadas.
 3. Confirmar horarios, actividades, tarifas y contacto.
-4. Conectar WhatsApp, formularios o sistema real de reservas.
+4. Integrar WhatsApp, formulario o sistema real de reservas.
 5. Añadir Aviso Legal, Privacidad y Cookies cuando corresponda.
-6. Configurar dominio propio.
+6. Configurar dominio propio y alojamiento de producción.
 7. Retirar `noindex,nofollow` y preparar SEO local.
 8. Configurar analítica respetando consentimiento y privacidad.
