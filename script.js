@@ -18,7 +18,11 @@ document.querySelectorAll('.main-nav a').forEach(link => {
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     closeMenu();
-    menuButton?.focus();
+
+    document.querySelectorAll('.faq-item.open').forEach(item => {
+      item.classList.remove('open');
+      item.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+    });
   }
 });
 
@@ -28,7 +32,30 @@ document.addEventListener('click', event => {
   closeMenu();
 });
 
-document.querySelector('.demo-button')?.addEventListener('click', event => {
-  event.preventDefault();
-  alert('Botón de demostración. En una versión oficial se conectaría con WhatsApp, teléfono, formulario o el sistema de reservas del centro.');
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.closest('.faq-item');
+    const isOpen = item.classList.toggle('open');
+    button.setAttribute('aria-expanded', String(isOpen));
+  });
 });
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealElements = document.querySelectorAll('.reveal');
+
+if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+  revealElements.forEach(element => element.classList.add('is-visible'));
+} else {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -30px 0px'
+  });
+
+  revealElements.forEach(element => observer.observe(element));
+}
